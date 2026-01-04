@@ -65,8 +65,8 @@ src/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/portfolio-3d.git
-   cd portfolio-3d
+   git clone https://github.com/micessien/3d-developer-portfolio.git
+   cd 3d-developer-portfolio
    ```
 
 2. **Install dependencies**
