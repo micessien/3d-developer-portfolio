@@ -1,16 +1,153 @@
-# React + Vite
+# 🌐 3D Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive 3D portfolio website built with React, Three.js, and Framer Motion. Features stunning 3D graphics, smooth animations, and a responsive design to showcase your work and skills.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat&logo=react)
+![Three.js](https://img.shields.io/badge/Three.js-0.182.0-black?style=flat&logo=three.js)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css)
+![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Interactive 3D Elements** - Engaging 3D computer model, floating tech balls, and animated stars
+- **Smooth Animations** - Beautiful scroll-triggered animations using Framer Motion
+- **Responsive Design** - Fully responsive layout that works on all devices
+- **Modern UI** - Clean, professional interface with Tailwind CSS styling
+- **Contact Form** - Functional contact form powered by EmailJS
+- **Timeline Experience** - Interactive work experience timeline
+- **Project Showcase** - Tilt-effect project cards with live demo links
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | React 19, React Router DOM |
+| **3D Graphics** | Three.js, React Three Fiber, React Three Drei |
+| **Styling** | Tailwind CSS, PostCSS, Autoprefixer |
+| **Animations** | Framer Motion |
+| **Build Tool** | Vite |
+| **Email Service** | EmailJS |
+| **Linting** | ESLint |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Project Structure
+
+```
+src/
+├── assets/          # Images, icons, and static assets
+│   ├── company/     # Company logos
+│   └── tech/        # Technology icons
+├── components/      # React components
+│   ├── canvas/      # 3D canvas components (Ball, Computers, Earth, Stars)
+│   ├── About.jsx
+│   ├── Contact.jsx
+│   ├── Experience.jsx
+│   ├── Feedbacks.jsx
+│   ├── Hero.jsx
+│   ├── Navbar.jsx
+│   ├── Tech.jsx
+│   └── Works.jsx
+├── constants/       # App constants and data
+├── hoc/             # Higher-order components
+├── utils/           # Utility functions (animations)
+├── App.jsx          # Main app component
+├── index.css        # Global styles
+└── main.jsx         # App entry point
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/portfolio-3d.git
+   cd portfolio-3d
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up EmailJS** (for contact form)
+   - Create an account at [EmailJS](https://www.emailjs.com/)
+   - Create an email service and template
+   - Update the EmailJS credentials in the Contact component
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## 🎨 Customization
+
+### Personal Information
+Update your details in `src/constants/index.js`:
+- Navigation links
+- Services offered
+- Technologies/skills
+- Work experience
+- Projects
+- Testimonials
+
+### Hero Section
+Modify `src/components/Hero.jsx` to update:
+- Your name
+- Tagline/description
+
+### Styling
+- Global styles: `src/index.css`
+- Tailwind config: `tailwind.config.js`
+- Custom styles: `src/styles.js`
+
+### 3D Models
+Replace 3D models in the `public/` folder:
+- `desktop_pc/` - Computer model for Hero section
+- `planet/` - Earth model for Contact section
+
+## 🌐 Deployment
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist/` folder, ready to deploy on:
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
+- [GitHub Pages](https://pages.github.com/)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) - React renderer for Three.js
+- [Drei](https://github.com/pmndrs/drei) - Useful helpers for React Three Fiber
+- [Framer Motion](https://www.framer.com/motion/) - Animation library
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+
+---
+
+<p align="center">
+  Made with ❤️ by Micael
+</p>
