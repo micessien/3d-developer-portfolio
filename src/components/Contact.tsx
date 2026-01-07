@@ -28,11 +28,11 @@ const Contact: React.FC = () => {
     setLoading(true);
 
     const templateParams = {
-      title: "New Message from 3D Portfolio",
+      title: import.meta.env.VITE_APP_EMAILJS_SUBJECT,
       name: form.name,
-      to_name: "Micky",
+      to_name: import.meta.env.VITE_APP_EMAILJS_USER_NAME,
       email: form.email,
-      to_email: "micaeldi@gmail.com",
+      to_email: import.meta.env.VITE_APP_EMAILJS_TO,
       message: form.message,
     };
 
