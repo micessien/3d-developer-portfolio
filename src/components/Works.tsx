@@ -1,13 +1,17 @@
 import { Tilt } from "react-tilt";
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import type { Project } from "../types";
 
-const ProjectCard = ({
+interface ProjectCardProps extends Project {
+  index: number;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
   index,
   name,
   description,
@@ -59,10 +63,10 @@ const ProjectCard = ({
   );
 };
 
-const Works = () => {
+const Works: React.FC = () => {
   return (
     <>
-      <motion.div variants={textVariant}>
+      <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects.</h2>
       </motion.div>

@@ -4,9 +4,9 @@ import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
-const Navbar = () => {
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+const Navbar: React.FC = () => {
+  const [active, setActive] = useState<string>("");
+  const [toggle, setToggle] = useState<boolean>(false);
 
   return (
     <nav

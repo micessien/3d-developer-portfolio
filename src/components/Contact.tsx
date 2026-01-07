@@ -1,27 +1,29 @@
-import { useState, useRef } from "react";
-// eslint-disable-next-line no-unused-vars
+import { useState, useRef, FormEvent, ChangeEvent } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import type { ContactForm } from "../types";
 
-const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
+const Contact: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [form, setForm] = useState<ContactForm>({
     name: "",
     email: "",
     message: "",
   });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -96,7 +98,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
-              rows="7"
+              rows={7}
               name="message"
               value={form.message}
               onChange={handleChange}

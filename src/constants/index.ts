@@ -25,7 +25,16 @@ import {
   threejs,
 } from "../assets";
 
-export const navLinks = [
+import type {
+  NavLink,
+  Service,
+  Technology,
+  Experience,
+  Testimonial,
+  Project,
+} from "../types";
+
+export const navLinks: NavLink[] = [
   {
     id: "about",
     title: "About",
@@ -40,7 +49,7 @@ export const navLinks = [
   },
 ];
 
-const services = [
+const services: Service[] = [
   {
     title: "Web Developer",
     icon: web,
@@ -59,7 +68,7 @@ const services = [
   },
 ];
 
-const technologies = [
+const technologies: Technology[] = [
   {
     name: "HTML 5",
     icon: html,
@@ -114,7 +123,7 @@ const technologies = [
   },
 ];
 
-const experiences = [
+const experiences: Experience[] = [
   {
     title: "React.js Developer",
     company_name: "Starbucks",
@@ -169,7 +178,7 @@ const experiences = [
   },
 ];
 
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     testimonial:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
@@ -196,7 +205,7 @@ const testimonials = [
   },
 ];
 
-const projects = [
+const projects: Project[] = [
   {
     name: "Car Rent",
     description:

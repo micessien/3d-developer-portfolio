@@ -1,11 +1,15 @@
-// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
+import type { Testimonial } from "../types";
 
-const FeedbackCard = ({
+interface FeedbackCardProps extends Testimonial {
+  index: number;
+}
+
+const FeedbackCard: React.FC<FeedbackCardProps> = ({
   index,
   testimonial,
   name,
@@ -45,13 +49,13 @@ const FeedbackCard = ({
   );
 };
 
-const Feedbacks = () => {
+const Feedbacks: React.FC = () => {
   return (
     <div className="mt-12 bg-black-100 rounded-[20px]">
       <div
         className={`${styles.padding} bg-tertiary rounded-2xl min-h-[300px]`}
       >
-        <motion.div variants={textVariant}>
+        <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>What others say</p>
           <h2 className={styles.sectionHeadText}>Testimonials.</h2>
         </motion.div>

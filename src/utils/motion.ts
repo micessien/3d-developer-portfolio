@@ -1,4 +1,8 @@
-export const textVariant = (delay) => {
+import type { Variants, Transition } from "framer-motion";
+
+type AnimationType = "tween" | "spring" | "keyframes" | "inertia" | "";
+
+export const textVariant = (delay?: number): Variants => {
   return {
     hidden: {
       y: -50,
@@ -16,7 +20,12 @@ export const textVariant = (delay) => {
   };
 };
 
-export const fadeIn = (direction, type, delay, duration) => {
+export const fadeIn = (
+  direction: "left" | "right" | "up" | "down" | "",
+  type: AnimationType,
+  delay: number,
+  duration: number
+): Variants => {
   return {
     hidden: {
       x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
@@ -32,12 +41,12 @@ export const fadeIn = (direction, type, delay, duration) => {
         delay: delay,
         duration: duration,
         ease: "easeOut",
-      },
+      } as Transition,
     },
   };
 };
 
-export const zoomIn = (delay, duration) => {
+export const zoomIn = (delay: number, duration: number): Variants => {
   return {
     hidden: {
       scale: 0,
@@ -56,7 +65,12 @@ export const zoomIn = (delay, duration) => {
   };
 };
 
-export const slideIn = (direction, type, delay, duration) => {
+export const slideIn = (
+  direction: "left" | "right" | "up" | "down",
+  type: AnimationType,
+  delay: number,
+  duration: number
+): Variants => {
   return {
     hidden: {
       x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
@@ -70,12 +84,15 @@ export const slideIn = (direction, type, delay, duration) => {
         delay: delay,
         duration: duration,
         ease: "easeOut",
-      },
+      } as Transition,
     },
   };
 };
 
-export const staggerContainer = (staggerChildren, delayChildren) => {
+export const staggerContainer = (
+  staggerChildren?: number,
+  delayChildren?: number
+): Variants => {
   return {
     hidden: {},
     show: {
