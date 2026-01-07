@@ -29,6 +29,7 @@ export default defineConfig([
   },
   {
     files: ["**/*.{ts,tsx}"],
+    ignores: ["vite.config.ts"],
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
@@ -54,6 +55,22 @@ export default defineConfig([
         "warn",
         { allowConstantExport: true },
       ],
+    },
+  },
+  {
+    files: ["vite.config.ts"],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: "./tsconfig.node.json",
+      },
     },
   },
 ]);
