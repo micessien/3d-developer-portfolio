@@ -10,29 +10,6 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
-// Declaration for react-tilt (no official types)
-declare module "react-tilt" {
-  import { ComponentType, HTMLAttributes } from "react";
-
-  export interface TiltOptions {
-    max?: number;
-    perspective?: number;
-    scale?: number;
-    speed?: number;
-    transition?: boolean;
-    axis?: "X" | "Y" | null;
-    reset?: boolean;
-    easing?: string;
-  }
-
-  export interface TiltProps extends HTMLAttributes<HTMLDivElement> {
-    options?: TiltOptions;
-    className?: string;
-  }
-
-  export const Tilt: ComponentType<TiltProps>;
-}
-
 // Declaration for react-vertical-timeline-component
 declare module "react-vertical-timeline-component" {
   import { ComponentType, ReactNode, CSSProperties } from "react";
