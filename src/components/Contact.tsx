@@ -15,12 +15,55 @@ const Contact: React.FC = () => {
     message: "",
   });
   const [loading, setLoading] = useState<boolean>(false);
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    message?: string;
+  }>({});
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors({ ...errors, [name]: undefined });
+    }
+
+    if (!validateForm()) {
+      return;
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: {
+      name?: string;
+      email?: string;
+      message?: string;
+    } = {};
+
+    // Validate name: at least 2 words
+    const nameWords = form.name.trim().split(/\s+/);
+    if (nameWords.length < 2 || nameWords.some((word) => word.length === 0)) {
+      newErrors.name = "Name must contain at least 2 words";
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Validate message: min 10, max 500 characters
+    if (form.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    } else if (form.message.trim().length > 500) {
+      newErrors.message = "Message must not exceed 500 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -53,10 +96,12 @@ const Contact: React.FC = () => {
             email: "",
             message: "",
           });
+          setErrors({});
         },
         (error) => {
           setLoading(false);
           console.error(error);
+          setErrors({});
           alert("Ahh, something went wrong. Please try again.");
         }
       );
@@ -85,7 +130,11 @@ const Contact: React.FC = () => {
               onChange={handleChange}
               placeholder="What's your name?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
             />
+            {errors.name && (
+              <span className="text-red-500 text-sm mt-2">{errors.name}</span>
+            )}
           </label>
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Email</span>
@@ -96,7 +145,11 @@ const Contact: React.FC = () => {
               onChange={handleChange}
               placeholder="What's your email?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
             />
+            {errors.email && (
+              <span className="text-red-500 text-sm mt-2">{errors.email}</span>
+            )}
           </label>
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
@@ -107,7 +160,18 @@ const Contact: React.FC = () => {
               onChange={handleChange}
               placeholder="What do you want to say?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
+              minLength={10}
+              maxLength={500}
             />
+            {errors.message && (
+              <span className="text-red-500 text-sm mt-2">
+                {errors.message}
+              </span>
+            )}
+            <span className="text-secondary text-xs mt-1">
+              {form.message.length}/500 characters
+            </span>
           </label>
 
           <button
