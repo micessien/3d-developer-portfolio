@@ -27,17 +27,20 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
+    const templateParams = {
+      title: "New Message from 3D Portfolio",
+      name: form.name,
+      to_name: "Micky",
+      email: form.email,
+      to_email: "micaeldi@gmail.com",
+      message: form.message,
+    };
+
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Sergey",
-          from_email: form.email,
-          to_email: "contact@jsmastery.p2",
-          message: form.message,
-        },
+        templateParams,
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
