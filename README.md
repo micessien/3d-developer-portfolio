@@ -38,20 +38,20 @@ src/
 │   └── tech/        # Technology icons
 ├── components/      # React components
 │   ├── canvas/      # 3D canvas components (Ball, Computers, Earth, Stars)
-│   ├── About.jsx
-│   ├── Contact.jsx
-│   ├── Experience.jsx
-│   ├── Feedbacks.jsx
-│   ├── Hero.jsx
-│   ├── Navbar.jsx
-│   ├── Tech.jsx
-│   └── Works.jsx
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── Experience.tsx
+│   ├── Feedbacks.tsx
+│   ├── Hero.tsx
+│   ├── Navbar.tsx
+│   ├── Tech.tsx
+│   └── Works.tsx
 ├── constants/       # App constants and data
 ├── hoc/             # Higher-order components
 ├── utils/           # Utility functions (animations)
-├── App.jsx          # Main app component
+├── App.tsx          # Main app component
 ├── index.css        # Global styles
-└── main.jsx         # App entry point
+└── main.tsx         # App entry point
 ```
 
 ## 🚀 Getting Started
@@ -108,7 +108,7 @@ Update your details in `src/constants/index.js`:
 - Testimonials
 
 ### Hero Section
-Modify `src/components/Hero.jsx` to update:
+Modify `src/components/Hero.tsx` to update:
 - Your name
 - Tagline/description
 
